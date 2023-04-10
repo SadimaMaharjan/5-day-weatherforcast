@@ -35,3 +35,11 @@ main {
 .search-history-container {
   margin-top: 0.8rem;
 }
+
+.city-weather-detail-container,
+.city-weather-forcast {
+  padding: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  margin-bottom: 0.8rem;
+}

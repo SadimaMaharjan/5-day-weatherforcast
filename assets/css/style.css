@@ -43,3 +43,12 @@ main {
   border-radius: 0.25rem;
   margin-bottom: 0.8rem;
 }
+
+.selected-city {
+  display: inline-block;
+}
+
+.city-weather-detail-container li {
+  list-style-type: none;
+  line-height: 2rem;
+}

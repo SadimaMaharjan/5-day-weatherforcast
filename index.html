@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -23,6 +23,38 @@
   </head>
 
   <body>
+    <header>
+      <div class="row">
+        <div class="col-12 text-center">
+          <h1 class="title">Weather Dashboard</h1>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="row">
+        <div class="col-md-4 col-sm-12">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Search For A City:</h4>
+              <input
+                class="search-box card-body"
+                id="search-field"
+                placeholder="Enter City"
+              />
+              <button type="button" class="btn btn-city-search" id="btn-search">
+                Search
+              </button>
+            </div>
+          </div>
+          <div class="card search-history-container">
+            <div class="card-body">
+              <h4 class="card-title">Previous Searches:</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8 col-sm-12"></div>
+      </div>
+    </main>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>

@@ -28,14 +28,14 @@ THEN I am again presented with current and future conditions for that city
 
 The following images show the web application's appearance and functionality:
 
-![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for Atlanta.](./Assets/06-server-side-apis-homework-demo.png)
+![The app shows weather details of city](./assets/images/screenshot1.png)
 
-The following screenshots demonstrates the application functionality:
-![Landing page of the application](./assets/images/screenshot1.png)
-![Adding events in the time-slots of the application and saving them](./assets/images/screenshot2.png)
+The following video demonstrates the application functionality:
+
+![video to demonstrate app](./assets/images/weatherforcast.gif)
 
 ## Github Deployment
 
 The following link redirects to the deployed application:
 
-[Github Deployment Link](https://sadimamaharjan.github.io/plan-my-day/)
+[Github Deployment Link](https://sadimamaharjan.github.io/5-day-weatherforcast/)

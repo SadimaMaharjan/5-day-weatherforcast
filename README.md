@@ -32,7 +32,7 @@ The following images show the web application's appearance and functionality:
 
 The following video demonstrates the application functionality:
 
-![video to demonstrate app](./assets/images/weatherforcast.gif)
+![Video to demonstrate app](./assets/images/weatherforcast.gif)
 
 ## Github Deployment
 

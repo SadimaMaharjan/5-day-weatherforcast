@@ -33,6 +33,11 @@ main {
   text-align: center;
 }
 
+.btn-city-search:hover {
+  color: var(--primary-color);
+  background-color: var(--text-color);
+}
+
 .search-history {
   margin-top: 0.8rem;
 }
@@ -70,4 +75,9 @@ main {
   color: var(--text-color);
   background-color: var(--secondary-color);
   border-color: var(--secondary-color);
+}
+
+.btn-list:hover {
+  color: var(--secondary-color);
+  background-color: var(--text-color);
 }

@@ -32,7 +32,7 @@ main {
   text-align: center;
 }
 
-.search-history-container {
+.search-history {
   margin-top: 0.8rem;
 }
 
@@ -48,7 +48,19 @@ main {
   display: inline-block;
 }
 
-.city-weather-detail-container li {
+.city-weather-detail-container li,
+.weather-detail li {
   list-style-type: none;
   line-height: 2rem;
+}
+
+.weather-detail {
+  padding: 0.2rem;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  color: var(--text-color);
+  background-color: var(--primary-color);
+}
+
+.forcast-date {
+  font-weight: 700;
 }

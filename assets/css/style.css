@@ -23,7 +23,8 @@ main {
   padding: 0.5rem;
 }
 
-.btn-city-search {
+.btn-city-search,
+.btn-list {
   color: var(--text-color);
   background-color: var(--primary-color);
   border-color: var(--primary-color);
@@ -63,4 +64,10 @@ main {
 
 .forcast-date {
   font-weight: 700;
+}
+
+.btn-list {
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
 }

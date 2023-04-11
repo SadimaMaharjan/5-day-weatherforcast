@@ -1,3 +1,4 @@
+//save reference to important DOM elements
 var citySearchFormEl = document.querySelector("#city-search-form");
 var cityNameInputEl = document.querySelector("#search-field");
 var searchButtonEl = document.querySelector("#btn-search");
@@ -9,6 +10,7 @@ var searchHistoryContainerEl = document.querySelector(
   ".search-history-container"
 );
 
+//API key for Open Weather Data
 var API_KEY = "2153b93d8fc7c1b3958691ab2de18220";
 
 //array to store previous searches of cities
@@ -25,10 +27,16 @@ var searchCityWeather = function (event) {
 
   if (cityName) {
     //console.log(cityName);
+    cityNameInputEl.value = "";
     getCoordinates(cityName);
-    addCityToSearchList(cityName);
-    previousSearchesOfCities.push(cityName);
-    setPreviousSearches(previousSearchesOfCities);
+    //check if the city name is already in the array of cities
+    if (previousSearchesOfCities.indexOf(cityName) === -1) {
+      addCityToSearchList(cityName);
+      previousSearchesOfCities.push(cityName);
+      setPreviousSearches(previousSearchesOfCities);
+    } else {
+      return;
+    }
   } else {
     alert("Please enter a city name");
   }
@@ -90,6 +98,10 @@ var getWeather = function (lat, lon, cityName) {
 };
 
 var displayWeatherOfCity = function (weatherData, cityName) {
+  //empty container
+  displayCityWeatherEl.innerHTML = "";
+
+  //create DOM elements
   var chosenCityEl = document.createElement("h2");
   chosenCityEl.className = "selected-city";
   var spanDateEl = document.createElement("span");
@@ -122,6 +134,9 @@ var displayWeatherOfCity = function (weatherData, cityName) {
 };
 
 var displayFiveDayForcast = function (weatherData) {
+  //empty container
+  cityWeatherForcastEl.innerHTML = "";
+  // Weather Forcast gives an array of 40 data objects. These data are recorded for 5 days, each data representing 3-hour interval of the forcast
   for (var i = 1; i <= 40; i += 8) {
     var forcastDetail = document.createElement("div");
     forcastDetail.className = "weather-detail col-lg-2 col-12";
@@ -157,19 +172,45 @@ var displayFiveDayForcast = function (weatherData) {
   }
 };
 
+// the following function adds buttons to the list and displays the weather for that clicked city
 var addCityToSearchList = function (city) {
   var cityButtonEl = document.createElement("button");
   cityButtonEl.textContent = city;
   cityButtonEl.className = "btn btn-list";
-  searchHistoryContainerEl.appendChild(cityButtonEl);
+  searchHistoryContainerEl.prepend(cityButtonEl);
+  cityButtonEl.addEventListener("click", function (event) {
+    getCoordinates(event.target.textContent);
+  });
 };
 var setPreviousSearches = function (cityList) {
   localStorage.setItem("searched-cities", JSON.stringify(cityList));
 };
 var getPreviousSearches = function () {
   var previousSearchList = JSON.parse(localStorage.getItem("searched-cities"));
+  if (previousSearchList !== null) {
+    previousSearchesOfCities = previousSearchList;
+    displayCities();
+  } else {
+    //if the previous search list is empty, set the default city to Melbourne
+    //defaultCity = "Melbourne";
+    //getCoordinates(defaultCity);
+    previousSearchesOfCities = [];
+  }
 };
 
-citySearchFormEl.addEventListener("submit", searchCityWeather);
+var displayCities = function () {
+  //variable to store a city name
+  var defaultCity;
+  for (var i = 0; i < previousSearchesOfCities.length; i++) {
+    defaultCity = previousSearchesOfCities[i];
+    addCityToSearchList(defaultCity);
+  }
+  //display weather details of latest city pushed into the array
+  getCoordinates(previousSearchesOfCities[previousSearchesOfCities.length - 1]);
+};
 
+//initialisation
 init();
+
+// Event listener when "search" button is clicked
+citySearchFormEl.addEventListener("submit", searchCityWeather);
